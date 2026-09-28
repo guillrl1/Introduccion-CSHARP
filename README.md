@@ -15,7 +15,7 @@ A continuación se detallan los ejercicios resueltos.
 * **Resolución:** `Random.Range()`, `GetComponent<Renderer>()`, `Color`, uso de variables públicas, como `framesWait` para definir cuántos frames debe esperar antes de actualizar el color y un contador en el método `Update()` para saber cuándo se llega a dicha cantidad.
 * **Prueba de ejecución:** En la siguiente animación se observa cómo el objeto cambia de color automáticamente tras el número de frames establecido.
 
-> ![01](C:\Users\guill\Desktop\01.gif)
+> ![01](https://github.com/guillrl1/Introduccion-CSHARP/blob/main/gifs/01.gif)
 
 ---
 
@@ -24,7 +24,7 @@ A continuación se detallan los ejercicios resueltos.
 * **Resolución:** Constructores de `Vector3`, `Vector3.magnitude`, `Vector3.Angle()`, `Vector3.Distance()`, y accesos a componentes individuales (`.y` para calcular la altura).
 * **Prueba de ejecución:** En la animación se observa cómo al modificar los valores de los Vectores A y B en el Inspector, los cálculos (magnitud, ángulo, distancia y vector más alto) se actualizan y se imprimen a través de `Debug.Log()`.
 
->![Ejecución Ejercicio 2 - Análisis de Vectores](link.gif)
+>![Ejecución Ejercicio 2 - Análisis de Vectores](https://github.com/guillrl1/Introduccion-CSHARP/blob/main/gifs/02.gif)
 
 ---
 
@@ -33,7 +33,7 @@ A continuación se detallan los ejercicios resueltos.
 * **Resolución:** Diferenciación entre acceder a la propiedad rápida `transform.position` versus realizar la búsqueda exhaustiva del componente con `GetComponent<Transform>()`.
 * **Prueba de ejecución:** Salida en consola mostrando las coordenadas X, Y, Z exactas en las que se encuentra la esfera en el momento de darle al Play.
 
-> ![Ejecución Ejercicio 3 - Posición de la Esfera](posicion.gif)
+> ![Ejecución Ejercicio 3 - Posición de la Esfera](https://github.com/guillrl1/Introduccion-CSHARP/blob/main/gifs/03.gif)
 
 ---
 
@@ -42,7 +42,7 @@ A continuación se detallan los ejercicios resueltos.
 * **Resolución:** Uso de `GameObject.FindWithTag()`, creando de esta manera una etiqueta para cada objeto desde la interfaz visual y asignándola a mano. También he hecho uso de `Vector3.Distance()` entre múltiples `Transforms`.
 * **Prueba de ejecución:** La consola de Unity muestra las distancias cruzadas: de la esfera al cubo, de la esfera al cilindro, y entre el cubo y el cilindro.
 
->![Ejecución Ejercicio 4 - Búsqueda por Etiquetas](distancias.gif)
+>![Ejecución Ejercicio 4 - Búsqueda por Etiquetas](https://github.com/guillrl1/Introduccion-CSHARP/blob/main/gifs/04.gif)
 
 ---
 
