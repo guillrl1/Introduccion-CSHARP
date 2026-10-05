@@ -1,8 +1,6 @@
 # Práctica de Unity: Introducción a Scripts, Vectores y Transformaciones
 
-Este repositorio contiene la resolución de los ejercicios prácticos 1-4 en Unity centrados en la programación en C#.
-
-A lo largo de esta práctica, se han trabajado conceptos fundamentales de la API de Unity como el manejo del componente `Transform`, la clase `Vector3`, la búsqueda de GameObjects mediante **Tags**, y la modificación de componentes visuales (`Renderer`).
+Este repositorio contiene la resolución de los ejercicios prácticos 1-13 en Unity centrados en la programación en C#.
 
 ---
 
