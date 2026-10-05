@@ -44,7 +44,7 @@ A continuación se detallan los ejercicios resueltos.
 
 ---
 
-### Hito 5: Desplazamientos Parametrizados mediante Eventos de Entrada
+### Ejercicio 5: Desplazamientos Parametrizados mediante Eventos de Entrada
 **Objetivo:** Configurar tres objetos en escena para que salten a una posición relativa específica (sumando un vector de desplazamiento a su posición original) cuando el usuario pulsa la barra espaciadora.
 * **Resolución:** Se creó un script asignado a cada objeto que guarda su posición inicial (`transform.position`) en el método `Start()`. En el método `Update()`, se utiliza `Input.GetAxis("Jump")` para detectar la pulsación de la barra espaciadora (asignada por defecto a ese eje en Unity). Cuando se detecta, se le suma a la posición original un `Vector3` de desplazamiento configurado públicamente desde el Inspector. Al sumar vectores, el objeto salta matemáticamente a esa nueva coordenada relativa.
 * **Prueba de ejecución:** Al pulsar la barra espaciadora, los tres objetos aplican su desplazamiento configurado desde el Inspector simultáneamente.
@@ -53,7 +53,7 @@ A continuación se detallan los ejercicios resueltos.
 
 ---
 
-### Hito 6: Lectura de Ejes y Teclas Específicas
+### Ejercicio 6: Lectura de Ejes y Teclas Específicas
 **Objetivo:** Calcular una magnitud basada en una variable de velocidad y los valores de los ejes vertical/horizontal, mostrando por consola el resultado solo cuando se detecta la pulsación exacta de una de las flechas direccionales.
 * **Resolución:** Se revirtió la configuración del proyecto al **Input Manager (Old)**. En el código, se leen los valores analógicos de -1 a 1 de los ejes usando `Input.GetAxis("Horizontal")` e `Input.GetAxis("Vertical")`. Se multiplica la velocidad por ambos ejes. 
   * *Aclaración sobre el resultado 0:* Es normal que la consola muestre un `0` al pulsar una sola flecha. Si pulsamos solo la flecha arriba, el eje vertical vale 1, pero el horizontal vale 0. Al multiplicar por cero, el total es cero. Para ver números distintos, se deben pulsar dos flechas en diagonal simultáneamente.
@@ -64,7 +64,7 @@ A continuación se detallan los ejercicios resueltos.
 
 ---
 
-### Hito 7: Mapeo de Controles Personalizados
+### Ejercicio 7: Mapeo de Controles Personalizados
 **Objetivo:** Utilizar la interfaz del motor para asignar la tecla 'H' a una acción virtual llamada "disparo".
 > ![Ejecución Hito 7 - Botón Disparo](https://github.com/guillrl1/Introduccion-CSHARP/blob/main/gifs/07.gif)
 * **Resolución:** En lugar de usar código para detectar la tecla física 'H', se configuró el **Input Manager** desde *Edit > Project Settings*. Se creó/modificó un eje virtual llamándolo `disparo` y se le asignó la letra `h` en su botón positivo. En el script, se llamó a `Input.GetButtonDown("disparo")`. La diferencia principal es que `GetButtonDown` se activa una sola vez en el frame en el que se pulsa la tecla, ideal para acciones como disparar, en lugar de ejecutarse continuamente mientras se mantiene pulsada.
@@ -74,7 +74,7 @@ A continuación se detallan los ejercicios resueltos.
 
 ---
 
-### Hito 8: Traslación Continua y Sistemas de Referencia
+### Ejercicio 8: Traslación Continua y Sistemas de Referencia
 **Objetivo:** Mover un cubo de forma constante basándose en un vector de dirección y una velocidad, observando el impacto de alterar variables.
 * **Resolución:** Se utilizó el método `transform.Translate(moveDirection * speed * Time.deltaTime)`.
   * **1. Duplicar las coordenadas de dirección:** El cubo se desplaza al doble de velocidad (el vector multiplicador es el doble de grande).
@@ -91,7 +91,7 @@ A continuación se detallan los ejercicios resueltos.
 
 ---
 
-### Hito 9 y 10: Control de Jugadores y Normalización del Tiempo
+### Ejercicio 9 y 10: Control de Jugadores y Normalización del Tiempo
 **Objetivo:** Mover el cubo (con flechas) y la esfera (con WASD) de forma independiente, asegurando un movimiento fluido e independiente de los FPS.
 * **Resolución:** 
   * *Separación de controles:* Si se usara `Input.GetAxis("Horizontal")`, ambos objetos se moverían a la vez porque Unity vincula ese eje tanto a las flechas como a las letras A/D. Para evitarlo, se construyó el valor del eje manualmente comprobando teclas específicas con `Input.GetKey(KeyCode.W)` etc.
@@ -102,7 +102,7 @@ A continuación se detallan los ejercicios resueltos.
 
 ---
 
-### Hito 11: Seguimiento Básico y Normalización Vectorial
+### Ejercicio 11: Seguimiento Básico y Normalización Vectorial
 **Objetivo:** Hacer que el cubo persiga a la esfera automáticamente. El avance debe ser constante y el cubo no debe alterar su altura.
 * **Resolución:** Para obtener el vector de dirección hacia la esfera, se aplica la fórmula matemática de restar vectores: `Destino - Origen` (`esferaObjetivo.position - transform.position`). 
   * Se anula el eje Y (`direccion.y = 0`) para evitar que el cubo se incline hacia arriba o abajo, manteniéndolo a ras de suelo.
@@ -113,7 +113,7 @@ A continuación se detallan los ejercicios resueltos.
 
 ---
 
-### Hito 12: Encarar al Objetivo (LookAt)
+### Ejercicio 12: Encarar al Objetivo (LookAt)
 **Objetivo:** Lograr que la cara frontal (eje Z positivo) del cubo apunte siempre hacia la esfera mientras avanza.
 * **Resolución:** Se añadió el método `transform.LookAt(esferaObjetivo)` antes de mover el objeto, lo que obliga al cubo a pivotar automáticamente para encarar su objetivo. 
   * *Aclaración:* Al estar el cubo rotando constantemente para mirar a la esfera, su sistema local de coordenadas cambia en cada frame. Por ello, fue obligatorio añadir `Space.World` en el método `Translate`. De lo contrario, el avance se combinaría de forma errónea con la rotación y el cubo se movería en espiral o de lado.
@@ -123,7 +123,7 @@ A continuación se detallan los ejercicios resueltos.
 
 ---
 
-### Hito 13: Controles de Vehículo (Giro y Avance Frontal)
+### Ejercicio 13: Controles de Vehículo (Giro y Avance Frontal)
 **Objetivo:** Crear un control estilo tanque/coche, donde el eje horizontal rota el objeto y este avanza siempre hacia adelante.
 * **Resolución:** Se separó el giro del avance.
   * El giro se aplicó con `transform.Rotate()`, aplicando la lectura del eje horizontal al eje Y (el eje vertical sobre el que pivota el objeto como una peonza).
